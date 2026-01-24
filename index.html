@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Ficha Análise de Crédito</title>
 <link rel="stylesheet" href="styles.css">
-<script src="/scripts.js"></script>
+<script src="/scripts.js" defer></script>
 </head>
 
 <body>
@@ -12,13 +12,13 @@
 <div class="container">
 <h1>Ficha Análise de Crédito</h1>
 
-<form>
+<form id="formFicha">
 
 <label>Nome Completo <span class="required">*</span></label>
 <input type="text" id="nome" required>
 
 <label>CPF <span class="required">*</span></label>
-<input type="text" id="cpf" required onblur="validarCPF()">
+<input type="text" id="cpf" required maxlength="14">
 
 <div class="row">
     <div class="col">
@@ -52,7 +52,7 @@
 </div>
 
 <label>CEP <span class="required">*</span></label>
-<input type="text" id="cep" required onblur="buscarCEP()">
+<input type="text" id="cep" required maxlength="9">
 
 <div class="row">
     <div class="col">
@@ -70,7 +70,7 @@
 </div>
 
 <label>Telefone <span class="required">*</span></label>
-<input type="tel" id="telefone" required placeholder="(99) 99999-9999">
+<input type="text" id="telefone" required maxlength="15">
 
 <label>E-mail <span class="required">*</span></label>
 <input type="email" id="email" required>
@@ -101,12 +101,12 @@
         </select>
     </div>
     <div class="col">
-        <input type="tel" id="refTelefone" placeholder="(99) 99999-9999" required>
+        <input type="text" id="refTelefone" placeholder="(00) 00000-0000" required maxlength="15">
     </div>
 </div>
 
 <label>Entrada? <span class="required">*</span></label>
-<select id="entrada" required onchange="toggleEntrada()">
+<select id="entrada" required>
     <option value="">Selecione</option>
     <option value="Sim">Sim</option>
     <option value="Não">Não</option>
@@ -114,13 +114,10 @@
 
 <div id="valorEntradaDiv" class="hidden">
     <label>Valor da Entrada (R$) <span class="required">*</span></label>
-    <input type="text" id="valorEntrada" oninput="formatarBRL(this)">
+    <input type="text" id="valorEntrada">
 </div>
 
-<button type="button" onclick="enviarWhatsApp()">
-    Gerar ficha e enviar ao consultor
-</button>
-
+<button type="submit">Gerar ficha e enviar ao consultor</button>
 </form>
 </div>
 
