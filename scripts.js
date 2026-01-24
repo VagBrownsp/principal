@@ -1,9 +1,13 @@
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("formFicha");
   const entrada = document.getElementById("entrada");
   const valorEntrada = document.getElementById("valorEntrada");
   const valorEntradaDiv = document.getElementById("valorEntradaDiv");
+
+  const cepInput = document.getElementById("cep");
+  const enderecoInput = document.getElementById("endereco");
+  const bairroInput = document.getElementById("bairro");
 
   // =====================
   // MOSTRAR / ESCONDER VALOR ENTRADA
@@ -24,9 +28,54 @@
   // =====================
   valorEntrada.addEventListener("input", () => {
     let v = valorEntrada.value.replace(/\D/g, "");
-    v = (v / 100).toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    v = (v / 100)
+      .toFixed(2)
+      .replace(".", ",")
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     valorEntrada.value = "R$ " + v;
   });
+
+  // =====================
+  // MÁSCARA E BUSCA DE CEP
+  // =====================
+  cepInput.addEventListener("input", () => {
+    let cep = cepInput.value.replace(/\D/g, "");
+
+    if (cep.length > 8) cep = cep.slice(0, 8);
+
+    cepInput.value = cep.replace(/^(\d{5})(\d{0,3})$/, "$1-$2");
+
+    if (cep.length === 8) {
+      buscarCEP(cep);
+    }
+  });
+
+  function buscarCEP(cep) {
+    enderecoInput.value = "Buscando endereço...";
+    bairroInput.value = "";
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.erro) {
+          alert("CEP não encontrado. Verifique e tente novamente.");
+          limparEndereco();
+          return;
+        }
+
+        enderecoInput.value = data.logradouro || "";
+        bairroInput.value = data.bairro || "";
+      })
+      .catch(() => {
+        alert("Erro ao buscar o CEP.");
+        limparEndereco();
+      });
+  }
+
+  function limparEndereco() {
+    enderecoInput.value = "";
+    bairroInput.value = "";
+  }
 
   // =====================
   // VALIDA CPF
@@ -50,7 +99,7 @@
   }
 
   // =====================
-  // ENVIO WHATSAPP / INSTAGRAM
+  // ENVIO WHATSAPP
   // =====================
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -82,8 +131,9 @@ Número: ${document.getElementById("cnh").value || "Não informado"}
 Data Expedição: ${document.getElementById("cnhData").value || "Não informado"}
 
 *Endereço*
-CEP: ${document.getElementById("cep").value}
-Endereço: ${document.getElementById("endereco").value}
+CEP: ${cepInput.value}
+Endereço: ${enderecoInput.value}
+Bairro: ${bairroInput.value}
 Número: ${document.getElementById("numeroCasa").value}
 Complemento: ${document.getElementById("complemento").value || "—"}
 
@@ -113,4 +163,5 @@ Valor: ${valorEntrada.value || "Não possui"}
   });
 
 });
+
 
