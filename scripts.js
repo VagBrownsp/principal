@@ -157,6 +157,9 @@ Valor: ${valorEntrada.value || "Não possui"}
 `;
 
     window.open(
-      "https://wa.me/5512991791629?text=" + encodeURIComponent(mensagem),
+      "https://wa.me/5512997121254?text=" + encodeURIComponent(mensagem),
       "_blank"
     );
+  });
+
+});
