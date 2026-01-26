@@ -160,143 +160,25 @@ Valor: ${valorEntrada.value || "Não possui"}
       "https://wa.me/5512991791629?text=" + encodeURIComponent(mensagem),
       "_blank"
     );*/
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const form = document.getElementById("formFicha");
+  console.log("JS carregado");
 
+  const btnManual = document.getElementById("btnManual");
   const blocoImagem = document.getElementById("blocoImagem");
   const blocoManual = document.getElementById("blocoManual");
-  const btnManual = document.getElementById("btnManual");
 
-  const docFrente = document.getElementById("docFrente");
-  const docVerso = document.getElementById("docVerso");
-
-  const camposManuais = [
-    "nome",
-    "nomeMae",
-    "naturalidade",
-    "cpf",
-    "rg",
-    "rgData"
-  ].map(id => document.getElementById(id));
-
-  const entrada = document.getElementById("entrada");
-  const valorEntrada = document.getElementById("valorEntrada");
-  const valorEntradaDiv = document.getElementById("valorEntradaDiv");
-
-  const cepInput = document.getElementById("cep");
-  const enderecoInput = document.getElementById("endereco");
-  const bairroInput = document.getElementById("bairro");
-
-  // =====================
-  // BOTÃO PREENCHER À MÃO
-  // =====================
-  btnManual.addEventListener("click", () => {
-    blocoImagem.style.display = "none";
-    blocoManual.style.display = "block";
-
-    docFrente.required = false;
-    docVerso.required = false;
-    docFrente.value = "";
-    docVerso.value = "";
-
-    camposManuais.forEach(c => c.required = true);
-  });
-
-  // =====================
-  // ENTRADA
-  // =====================
-  entrada.addEventListener("change", () => {
-    if (entrada.value === "Sim") {
-      valorEntradaDiv.style.display = "block";
-      valorEntrada.required = true;
-    } else {
-      valorEntradaDiv.style.display = "none";
-      valorEntrada.required = false;
-      valorEntrada.value = "";
-    }
-  });
-
-  valorEntrada.addEventListener("input", () => {
-    let v = valorEntrada.value.replace(/\D/g, "");
-    v = (v / 100).toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    valorEntrada.value = "R$ " + v;
-  });
-
-  // =====================
-  // CEP
-  // =====================
-  cepInput.addEventListener("input", () => {
-    let cep = cepInput.value.replace(/\D/g, "");
-    if (cep.length > 8) cep = cep.slice(0, 8);
-    cepInput.value = cep.replace(/^(\d{5})(\d{0,3})$/, "$1-$2");
-    if (cep.length === 8) buscarCEP(cep);
-  });
-
-  function buscarCEP(cep) {
-    enderecoInput.value = "Buscando endereço...";
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.erro) {
-          alert("CEP não encontrado.");
-          enderecoInput.value = "";
-          bairroInput.value = "";
-          return;
-        }
-        enderecoInput.value = data.logradouro || "";
-        bairroInput.value = data.bairro || "";
-      });
+  if (!btnManual || !blocoImagem || !blocoManual) {
+    alert("Erro: elementos não encontrados no HTML");
+    return;
   }
 
-  // =====================
-  // SUBMIT
-  // =====================
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  btnManual.addEventListener("click", function () {
+    console.log("Botão clicado");
 
-    if (blocoManual.style.display === "block") {
-      for (const campo of camposManuais) {
-        if (!campo.value) {
-          alert("Preencha todos os dados do documento.");
-          return;
-        }
-      }
-    } else {
-      if (!docFrente.files.length || !docVerso.files.length) {
-        alert("Envie a foto da frente e do verso do RG ou CNH.");
-        return;
-      }
-    }
-
-    if (!form.checkValidity()) {
-      alert("Preencha todos os campos obrigatórios.");
-      return;
-    }
-
-    const mensagem = `
-*FICHA ANÁLISE DE CRÉDITO*
-Documento: ${blocoManual.style.display === "block" ? "Preenchido manualmente" : "Enviado por imagem"}
-
-Telefone: ${document.getElementById("telefone").value}
-E-mail: ${document.getElementById("email").value}
-
-Endereço: ${enderecoInput.value}, ${document.getElementById("numeroCasa").value}
-Bairro: ${bairroInput.value}
-CEP: ${cepInput.value}
-
-Profissão: ${document.getElementById("profissao").value}
-Empresa: ${document.getElementById("empresa").value}
-Renda: ${document.getElementById("renda").value}
-
-Entrada: ${entrada.value}
-Valor: ${valorEntrada.value || "Não possui"}
-`;
-
-    window.open(
-      "https://wa.me/5512991791629?text=" + encodeURIComponent(mensagem),
-      "_blank"
-    );
+    blocoImagem.style.display = "none";
+    blocoManual.style.display = "block";
   });
 
 });
+
