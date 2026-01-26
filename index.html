@@ -13,6 +13,24 @@
 
 <form id="formFicha">
 
+  <!-- Teste --> <label>Os dados do documento estão legíveis e completos? <span class="required">*</span></label>
+<select id="docCompleto" required>
+    <option value="">Selecione</option>
+    <option value="sim">Sim</option>
+    <option value="nao">Não</option>
+</select> 
+<!-- Teste -->
+<div id="uploadDocumentos" class="hidden">
+    <label>Envie foto do documento (RG ou CNH) <span class="required">*</span></label>
+
+    <label>Frente</label>
+    <input type="file" id="docFrente" accept="image/*">
+
+    <label>Verso</label>
+    <input type="file" id="docVerso" accept="image/*">
+</div>
+
+
 <label>Nome Completo <span class="required">*</span></label>
 <input type="text" id="nome" required>
 
