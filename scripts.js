@@ -161,6 +161,7 @@ Valor: ${valorEntrada.value || "Não possui"}
       "_blank"
     );*/
 document.addEventListener("DOMContentLoaded", () => {
+
   const form = document.getElementById("formFicha");
 
   const blocoImagem = document.getElementById("blocoImagem");
@@ -191,8 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // BOTÃO PREENCHER À MÃO
   // =====================
   btnManual.addEventListener("click", () => {
-    blocoImagem.classList.add("hidden");
-    blocoManual.classList.remove("hidden");
+    blocoImagem.style.display = "none";
+    blocoManual.style.display = "block";
 
     docFrente.required = false;
     docVerso.required = false;
@@ -207,10 +208,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // =====================
   entrada.addEventListener("change", () => {
     if (entrada.value === "Sim") {
-      valorEntradaDiv.classList.remove("hidden");
+      valorEntradaDiv.style.display = "block";
       valorEntrada.required = true;
     } else {
-      valorEntradaDiv.classList.add("hidden");
+      valorEntradaDiv.style.display = "none";
       valorEntrada.required = false;
       valorEntrada.value = "";
     }
@@ -254,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    if (!blocoManual.classList.contains("hidden")) {
+    if (blocoManual.style.display === "block") {
       for (const campo of camposManuais) {
         if (!campo.value) {
           alert("Preencha todos os dados do documento.");
@@ -275,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mensagem = `
 *FICHA ANÁLISE DE CRÉDITO*
-Documento: ${blocoManual.classList.contains("hidden") ? "Enviado por imagem" : "Preenchido manualmente"}
+Documento: ${blocoManual.style.display === "block" ? "Preenchido manualmente" : "Enviado por imagem"}
 
 Telefone: ${document.getElementById("telefone").value}
 E-mail: ${document.getElementById("email").value}
@@ -297,5 +298,5 @@ Valor: ${valorEntrada.value || "Não possui"}
       "_blank"
     );
   });
-});
 
+});
