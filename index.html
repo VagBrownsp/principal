@@ -194,7 +194,6 @@
 <meta charset="UTF-8">
 <title>Ficha Análise de Crédito</title>
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/x-icon" href="/6827181.ico">
 <script src="scripts.js" defer></script>
 </head>
 
@@ -205,105 +204,78 @@
 <form id="formFicha">
 
 <!-- =====================
-     IDENTIFICAÇÃO
+ DOCUMENTO
 ===================== -->
 
 <div id="blocoImagem">
+  <label>Documento (RG ou CNH) <span class="required">*</span></label>
 
-  <label>Documento de Identificação (RG ou CNH) <span class="required">*</span></label>
-
-  <label>Foto da frente <span class="required">*</span></label>
+  <label>Foto frente *</label>
   <input type="file" id="docFrente" accept="image/*" required>
 
-  <label>Foto do verso <span class="required">*</span></label>
+  <label>Foto verso *</label>
   <input type="file" id="docVerso" accept="image/*" required>
 
- <button type="button" id="btnManual">
-  Preencher à mão
-</button>
-
-
+  <button type="button" id="btnManual">
+    Preencher à mão
+  </button>
 </div>
 
 <div id="blocoManual" style="display:none">
-
-  <label>Nome Completo <span class="required">*</span></label>
+  <label>Nome Completo *</label>
   <input type="text" id="nome">
 
-  <label>Nome da mãe <span class="required">*</span></label>
+  <label>Nome da mãe *</label>
   <input type="text" id="nomeMae">
 
   <label>Nome do pai</label>
   <input type="text" id="nomePai">
 
-  <label>Natural de qual cidade <span class="required">*</span></label>
+  <label>Natural de qual cidade *</label>
   <input type="text" id="naturalidade">
 
-  <label>CPF <span class="required">*</span></label>
+  <label>CPF *</label>
   <input type="text" id="cpf">
 
-  <label>RG <span class="required">*</span></label>
+  <label>RG *</label>
   <input type="text" id="rg">
 
-  <label>Data Expedição RG <span class="required">*</span></label>
+  <label>Data Expedição RG *</label>
   <input type="date" id="rgData">
-
 </div>
 
 <!-- =====================
-     RESTANTE DO FORMULÁRIO
+ RESTANTE DO FORMULÁRIO
 ===================== -->
 
-<label>Estado Civil <span class="required">*</span></label>
-<select id="estadoCivil" required>
-  <option value="">Selecione</option>
-  <option>Solteiro(a)</option>
-  <option>Casado(a)</option>
-  <option>Divorciado(a)</option>
-  <option>Viúvo(a)</option>
-</select>
+<label>CEP *</label>
+<input type="text" id="cep" required>
 
-<label>CEP <span class="required">*</span></label>
-<input type="text" id="cep" required maxlength="9">
+<label>Endereço *</label>
+<input type="text" id="endereco" required>
 
-<div class="row">
-  <div class="col">
-    <label>Endereço <span class="required">*</span></label>
-    <input type="text" id="endereco" required>
-  </div>
-  <div class="col">
-    <label>Bairro <span class="required">*</span></label>
-    <input type="text" id="bairro" required>
-  </div>
-</div>
+<label>Bairro *</label>
+<input type="text" id="bairro" required>
 
-<div class="row">
-  <div class="col">
-    <label>Número <span class="required">*</span></label>
-    <input type="text" id="numeroCasa" required>
-  </div>
-  <div class="col">
-    <label>Complemento</label>
-    <input type="text" id="complemento">
-  </div>
-</div>
+<label>Número *</label>
+<input type="text" id="numeroCasa" required>
 
-<label>Telefone <span class="required">*</span></label>
-<input type="text" id="telefone" required maxlength="15">
+<label>Telefone *</label>
+<input type="text" id="telefone" required>
 
-<label>E-mail <span class="required">*</span></label>
+<label>E-mail *</label>
 <input type="email" id="email" required>
 
-<label>Profissão <span class="required">*</span></label>
+<label>Profissão *</label>
 <input type="text" id="profissao" required>
 
-<label>Empresa <span class="required">*</span></label>
+<label>Empresa *</label>
 <input type="text" id="empresa" required>
 
-<label>Renda Mensal 💼💰 <span class="required">*</span></label>
+<label>Renda *</label>
 <input type="text" id="renda" required>
 
-<label>Entrada? <span class="required">*</span></label>
+<label>Entrada? *</label>
 <select id="entrada" required>
   <option value="">Selecione</option>
   <option value="Sim">Sim</option>
@@ -311,11 +283,11 @@
 </select>
 
 <div id="valorEntradaDiv" style="display:none">
-  <label>Valor da Entrada (R$) <span class="required">*</span></label>
+  <label>Valor da Entrada *</label>
   <input type="text" id="valorEntrada">
 </div>
 
-<button type="submit">Gerar ficha e enviar ao consultor</button>
+<button type="submit">Enviar para WhatsApp</button>
 
 </form>
 </div>
