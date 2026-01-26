@@ -1,4 +1,4 @@
-/* document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("formFicha");
   const entrada = document.getElementById("entrada");
@@ -159,26 +159,4 @@ Valor: ${valorEntrada.value || "Não possui"}
     window.open(
       "https://wa.me/5512991791629?text=" + encodeURIComponent(mensagem),
       "_blank"
-    );*/
-document.addEventListener("DOMContentLoaded", function () {
-
-  console.log("JS carregado");
-
-  const btnManual = document.getElementById("btnManual");
-  const blocoImagem = document.getElementById("blocoImagem");
-  const blocoManual = document.getElementById("blocoManual");
-
-  if (!btnManual || !blocoImagem || !blocoManual) {
-    alert("Erro: elementos não encontrados no HTML");
-    return;
-  }
-
-  btnManual.addEventListener("click", function () {
-    console.log("Botão clicado");
-
-    blocoImagem.style.display = "none";
-    blocoManual.style.display = "block";
-  });
-
-});
-
+    );
