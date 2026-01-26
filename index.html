@@ -204,16 +204,54 @@
 
 <form id="formFicha">
 
-<!-- DOCUMENTO -->
-<label>Documento de Identificação (RG ou CNH) <span class="required">*</span></label>
+<!-- =====================
+     IDENTIFICAÇÃO
+===================== -->
 
-<label>Foto da frente <span class="required">*</span></label>
-<input type="file" id="docFrente" accept="image/*" required>
+<div id="blocoImagem">
 
-<label>Foto do verso <span class="required">*</span></label>
-<input type="file" id="docVerso" accept="image/*" required>
+  <label>Documento de Identificação (RG ou CNH) <span class="required">*</span></label>
 
-<!-- DADOS NÃO DOCUMENTAIS (mantidos) -->
+  <label>Foto da frente <span class="required">*</span></label>
+  <input type="file" id="docFrente" accept="image/*" required>
+
+  <label>Foto do verso <span class="required">*</span></label>
+  <input type="file" id="docVerso" accept="image/*" required>
+
+  <button type="button" id="btnManual">
+    Preencher à mão
+  </button>
+
+</div>
+
+<div id="blocoManual" class="hidden">
+
+  <label>Nome Completo <span class="required">*</span></label>
+  <input type="text" id="nome">
+
+  <label>Nome da mãe <span class="required">*</span></label>
+  <input type="text" id="nomeMae">
+
+  <label>Nome do pai</label>
+  <input type="text" id="nomePai">
+
+  <label>Natural de qual cidade <span class="required">*</span></label>
+  <input type="text" id="naturalidade">
+
+  <label>CPF <span class="required">*</span></label>
+  <input type="text" id="cpf">
+
+  <label>RG <span class="required">*</span></label>
+  <input type="text" id="rg">
+
+  <label>Data Expedição RG <span class="required">*</span></label>
+  <input type="date" id="rgData">
+
+</div>
+
+<!-- =====================
+     DADOS RESTANTES
+===================== -->
 
 <label>Estado Civil <span class="required">*</span></label>
 <select id="estadoCivil" required>
@@ -282,3 +320,4 @@
 </div>
 </body>
 </html>
+
