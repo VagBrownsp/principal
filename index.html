@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 
 <form id="formFicha">
 
-  <!-- Teste --> <label>Os dados do documento estão legíveis e completos? <span class="required">*</span></label>
+  <!-- Teste  <label>Os dados do documento estão legíveis e completos? <span class="required">*</span></label>
 <select id="docCompleto" required>
     <option value="">Selecione</option>
     <option value="sim">Sim</option>
@@ -28,7 +28,7 @@
     <label>Verso</label>
     <input type="file" id="docVerso" accept="image/*">
 </div>
-<!-- Teste -->
+<!-- Teste 
 <div id="uploadDocumentos" class="hidden">
     <label>Envie foto do documento (RG ou CNH) <span class="required">*</span></label>
 
@@ -179,6 +179,101 @@
 <div id="valorEntradaDiv" class="hidden">
     <label>Valor da Entrada (R$) <span class="required">*</span></label>
     <input type="text" id="valorEntrada">
+</div>
+
+<button type="submit">Gerar ficha e enviar ao consultor</button>
+
+</form>
+</div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Ficha Análise de Crédito</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="/6827181.ico">
+<script src="scripts.js" defer></script>
+</head>
+
+<body>
+<div class="container">
+<h1>Ficha Análise de Crédito</h1>
+
+<form id="formFicha">
+
+<!-- DOCUMENTO -->
+<label>Documento de Identificação (RG ou CNH) <span class="required">*</span></label>
+
+<label>Foto da frente <span class="required">*</span></label>
+<input type="file" id="docFrente" accept="image/*" required>
+
+<label>Foto do verso <span class="required">*</span></label>
+<input type="file" id="docVerso" accept="image/*" required>
+
+<!-- DADOS NÃO DOCUMENTAIS (mantidos) -->
+
+<label>Estado Civil <span class="required">*</span></label>
+<select id="estadoCivil" required>
+  <option value="">Selecione</option>
+  <option>Solteiro(a)</option>
+  <option>Casado(a)</option>
+  <option>Divorciado(a)</option>
+  <option>Viúvo(a)</option>
+</select>
+
+<label>CEP <span class="required">*</span></label>
+<input type="text" id="cep" required maxlength="9">
+
+<div class="row">
+  <div class="col">
+    <label>Endereço <span class="required">*</span></label>
+    <input type="text" id="endereco" required>
+  </div>
+  <div class="col">
+    <label>Bairro <span class="required">*</span></label>
+    <input type="text" id="bairro" required>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <label>Número <span class="required">*</span></label>
+    <input type="text" id="numeroCasa" required>
+  </div>
+  <div class="col">
+    <label>Complemento</label>
+    <input type="text" id="complemento">
+  </div>
+</div>
+
+<label>Telefone <span class="required">*</span></label>
+<input type="text" id="telefone" required maxlength="15">
+
+<label>E-mail <span class="required">*</span></label>
+<input type="email" id="email" required>
+
+<label>Profissão <span class="required">*</span></label>
+<input type="text" id="profissao" required>
+
+<label>Empresa <span class="required">*</span></label>
+<input type="text" id="empresa" required>
+
+<label>Renda Mensal 💼💰 <span class="required">*</span></label>
+<input type="text" id="renda" required>
+
+<label>Entrada? <span class="required">*</span></label>
+<select id="entrada" required>
+  <option value="">Selecione</option>
+  <option value="Sim">Sim</option>
+  <option value="Não">Não</option>
+</select>
+
+<div id="valorEntradaDiv" class="hidden">
+  <label>Valor da Entrada (R$) <span class="required">*</span></label>
+  <input type="text" id="valorEntrada">
 </div>
 
 <button type="submit">Gerar ficha e enviar ao consultor</button>
