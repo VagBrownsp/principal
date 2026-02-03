@@ -120,11 +120,17 @@ document.addEventListener("DOMContentLoaded", () => {
 *FICHA ANÁLISE DE CRÉDITO*
 
 *Dados Pessoais*
-Nome: ${document.getElementById("nome").value}
+Nome: ${$("nome").value}
+Data de Nascimento: ${$("dataNascimento").value}
+Naturalidade: ${$("naturalidade").value}
+
+Nome da Mãe: ${$("nomeMae").value}
+Nome do Pai: ${$("nomePai").value || "Não informado"}
+
 CPF: ${cpf}
-RG: ${document.getElementById("rg").value}
-Data Expedição RG: ${document.getElementById("rgData").value}
-Estado Civil: ${document.getElementById("estadoCivil").value}
+RG: ${$("rg").value}
+Data Expedição RG: ${$("rgData").value}
+Estado Civil: ${$("estadoCivil").value}
 
 *CNH*
 Número: ${document.getElementById("cnh").value || "Não informado"}
@@ -163,3 +169,9 @@ Valor: ${valorEntrada.value || "Não possui"}
   });
 
 });
+
+
+
+
+
+
