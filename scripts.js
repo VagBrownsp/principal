@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const entrada = document.getElementById("entrada");
   const valorEntrada = document.getElementById("valorEntrada");
   const valorEntradaDiv = document.getElementById("valorEntradaDiv");
-  const dataNascimento = document.getElementById("dataNascimento");
-  const nomeMae = document.getElementById("nomeMae");
-  const nomePai = document.getElementById("nomePai");
-
   const cepInput = document.getElementById("cep");
   const enderecoInput = document.getElementById("endereco");
   const bairroInput = document.getElementById("bairro");
@@ -128,9 +124,12 @@ Data Nascimento: ${document.getElementById("dataNascimento").value}
 Nome da Mãe: ${document.getElementById("nomeMae").value}
 Nome do Pai: ${document.getElementById("nomePai").value}
 CPF: ${cpf}
+Naturalidade: ${document.getElementById("naturalidade").value}
 RG: ${document.getElementById("rg").value}
 Data Expedição RG: ${document.getElementById("rgData").value}
 Estado Civil: ${document.getElementById("estadoCivil").value}
+
+Modelo da Moto: ${modeloMoto.value}
 
 *CNH*
 Número: ${document.getElementById("cnh").value || "Não informado"}
