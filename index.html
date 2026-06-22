@@ -1,36 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista para Sorteio - Vale Financeira</title>
-
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário WhatsApp</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
+  <div class="container">
+    <h2>Cadastro</h2>
 
-        <h1>Lista para Sorteio Vale Financeira</h1>
+    <input type="text" id="nome" placeholder="Nome completo">
 
-        <form id="formFicha">
+    <input type="date" id="nascimento">
 
-            <label for="nome">Nome Completo *</label>
-            <input type="text" id="nome" required>
+    <input type="text" id="celular" placeholder="(11) 91234-5678">
 
-            <label for="dataNascimento">Data de Nascimento *</label>
-            <input type="date" id="dataNascimento" required>
+    <button onclick="enviarWhatsApp()">Enviar WhatsApp</button>
+  </div>
 
-            <label for="celular">Celular *</label>
-            <input type="text" id="celular" placeholder="(11) 91234-5678">
-
-            <button type="submit">Participar</button>
-
-        </form>
-
-    </div>
-
+  <script src="script.js"></script>
 </body>
 </html>
-
