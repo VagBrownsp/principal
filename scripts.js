@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("formFicha");
-  /*const entrada = document.getElementById("entrada");
+  const entrada = document.getElementById("entrada");
   const valorEntrada = document.getElementById("valorEntrada");
   const valorEntradaDiv = document.getElementById("valorEntradaDiv");
   const cepInput = document.getElementById("cep");
@@ -160,12 +160,47 @@ Telefone: ${document.getElementById("refTelefone").value}
 Possui entrada: ${entrada.value}
 Valor: ${valorEntrada.value || "Não possui"}
 `;
-*/
+
     window.open(
       "https://wa.me/5512997479192?text=" + encodeURIComponent(mensagem),
       "_blank"
     );
   });
+
+}); */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("formFicha");
+
+    form.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value.trim();
+        const dataNascimento = document.getElementById("dataNascimento").value;
+        const celular = document.getElementById("celular").value.trim();
+
+        const mensagem = `
+🎁 *LISTA PARA SORTEIO - VALE FINANCEIRA*
+
+👤 Nome: ${nome}
+
+📅 Data de Nascimento: ${dataNascimento}
+
+📱 Celular: ${celular}
+
+Obrigado por participar!
+`;
+
+        const numeroWhatsApp = "5512997479192";
+
+        window.open(
+            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`,
+            "_blank"
+        );
+
+    });
 
 });
 
