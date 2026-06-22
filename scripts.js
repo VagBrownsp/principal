@@ -1,38 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("formFicha").addEventListener("submit", function(e) {
 
-    const form = document.getElementById("formFicha");
+    e.preventDefault();
 
-    form.addEventListener("submit", (e) => {
+    const nome = document.getElementById("nome").value;
+    const dataNascimento = document.getElementById("dataNascimento").value;
+    const celular = document.getElementById("celular").value;
 
-        e.preventDefault();
+    const mensagem =
+`🎁 LISTA PARA SORTEIO - VALE FINANCEIRA
 
-        const nome = document.getElementById("nome").value.trim();
-        const dataNascimento = document.getElementById("dataNascimento").value;
-        const celular = document.getElementById("celular").value.trim();
+Nome: ${nome}
+Data de Nascimento: ${dataNascimento}
+Celular: ${celular}`;
 
-        const mensagem = `
-🎁 *LISTA PARA SORTEIO - VALE FINANCEIRA*
+    const url =
+        "https://api.whatsapp.com/send?phone=5512997479192&text=" +
+        encodeURIComponent(mensagem);
 
-👤 Nome: ${nome}
-
-📅 Data de Nascimento: ${dataNascimento}
-
-📱 Celular: ${celular}
-
-Obrigado por participar!
-`;
-
-        window.open(
-            `https://wa.me/5512997479192?text=Teste?text=${encodeURIComponent(mensagem)}`,
-            "_blank"
-        );
-
-    });
+    window.location.href = url;
 
 });
-
-
-
-
-
-
