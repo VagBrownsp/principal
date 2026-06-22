@@ -1,3 +1,25 @@
+document.getElementById("formFicha").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const dataNascimento = document.getElementById("dataNascimento").value;
+    const celular = document.getElementById("celular").value;
+
+    const mensagem =
+`🎁 LISTA PARA SORTEIO - VALE FINANCEIRA
+
+Nome: ${nome}
+Data de Nascimento: ${dataNascimento}
+Celular: ${celular}`;
+
+    const url =
+        "https://api.whatsapp.com/send?phone=5512997478084&text=" +
+        encodeURIComponent(mensagem);
+
+    window.location.href = url;
+
+});
 // =========================
 // MÁSCARA DE CELULAR (BR)
 // =========================
@@ -21,33 +43,3 @@ celularInput.addEventListener("input", (e) => {
 });
 
 
-// =========================
-// ENVIO WHATSAPP
-// =========================
-function enviarWhatsApp() {
-  const nome = document.getElementById("nome").value;
-  const nascimento = document.getElementById("nascimento").value;
-  const celular = document.getElementById("celular").value;
-
-  if (!nome || !nascimento || !celular) {
-    alert("Preencha todos os campos!");
-    return;
-  }
-
-  // remove máscara
-  const numeroLimpo = celular.replace(/\D/g, "");
-
-  // seu número de destino (troque aqui)
-  const numeroDestino = "5512997479192";
-
-  const mensagem =
-`Olá! Segue cadastro:
-
-Nome: ${nome}
-Nascimento: ${nascimento}
-Celular: ${celular}`;
-
-  const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagem)}`;
-
-  window.open(url, "_blank");
-}
