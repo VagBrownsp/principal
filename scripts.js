@@ -3,9 +3,8 @@ document.getElementById("formFicha").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value;
-    const dataNascimento = document.getElementById("dataNascimento").value;
-    const celular = document.getElementById("celular").value;
-
+    const dataNascimento = document.getElementById("dataNascimento").value
+    const celularInput = document.getElementById("celular");
     const mensagem =
 `🎁 LISTA PARA SORTEIO - VALE FINANCEIRA
 
@@ -18,7 +17,7 @@ Celular: ${celular}`;
         encodeURIComponent(mensagem);
 
     window.location.href = url;
-    const celularInput = document.getElementById("celular");
+    
 
 celularInput.addEventListener("input", (e) => {
   let value = e.target.value;
