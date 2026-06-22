@@ -1,25 +1,26 @@
-document.getElementById("formFicha").addEventListener("submit", function(e) {
+document.getElementById("formFicha").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    e.preventDefault();
+  const nome = document.getElementById("nome").value;
+  const dataNascimento = document.getElementById("dataNascimento").value;
+  const celularInput = document.getElementById("celular").value;
 
-    const nome = document.getElementById("nome").value;
-    const dataNascimento = document.getElementById("dataNascimento").value
-    const celularInput = document.getElementById("celular");
-    const mensagem =
-`🎁 LISTA PARA SORTEIO - VALE FINANCEIRA
+  const mensagem = `🎁 LISTA PARA SORTEIO - VALE FINANCEIRA
 
 Nome: ${nome}
 Data de Nascimento: ${dataNascimento}
-Celular: ${celular}`;
+Celular: ${celularInput}`;
 
-    const url =
-        "https://api.whatsapp.com/send?phone=5512997478084&text=" +
-        encodeURIComponent(mensagem);
+  const url =
+    "https://api.whatsapp.com/send?phone=5512997478084&text=" +
+    encodeURIComponent(mensagem);
 
-    window.location.href = url;
-    
+  window.location.href = url;
+});
 
-celularInput.addEventListener("input", (e) => {
+
+// MÁSCARA DO CELULAR (fora do submit)
+document.getElementById("celular").addEventListener("input", (e) => {
   let value = e.target.value;
 
   value = value.replace(/\D/g, "");
@@ -34,6 +35,7 @@ celularInput.addEventListener("input", (e) => {
   }
 
   e.target.value = value;
+});
 });
 
 
