@@ -1,167 +1,70 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* BASE */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 20px;
 }
 
-/* CONTAINER */
 .container {
-    max-width: 760px;
     background: #ffffff;
-    margin: auto;
-    padding: 32px;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
     border-radius: 12px;
-    border-top: 8px solid #cc0000;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* TÍTULO */
 h1 {
     text-align: center;
-    color: #cc0000;
-    margin-bottom: 30px;
-    font-size: 22px;
+    margin-bottom: 25px;
+    color: #1f4e79;
+    font-size: 24px;
 }
 
-/* LABELS */
 label {
-    font-weight: 600;
-    margin-top: 18px;
     display: block;
-    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
 }
 
-.required {
-    color: #cc0000;
-}
-
-/* INPUTS */
-input,
-select {
+input {
     width: 100%;
     padding: 12px;
-    margin-top: 6px;
+    border: 1px solid #d0d0d0;
     border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    transition: border 0.2s ease, box-shadow 0.2s ease;
+    font-size: 15px;
 }
 
-input:focus,
-select:focus {
+input:focus {
     outline: none;
-    border-color: #cc0000;
-    box-shadow: 0 0 0 2px rgba(204,0,0,0.15);
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+    border-color: #1f4e79;
 }
 
-.form-group label {
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-
-.form-group select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-
-/* LINHAS */
-.row {
-    display: flex;
-    gap: 16px;
-    margin-top: 5px;
-}
-
-.col {
-    flex: 1;
-}
-
-/* ESCONDER */
-.hidden {
-    display: none;
-}
-
-/* BOTÃO */
 button {
     width: 100%;
-    margin-top: 35px;
-    padding: 16px;
-    background: #cc0000;
-    color: #fff;
+    margin-top: 25px;
+    padding: 14px;
+    background: #25D366;
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #a80000;
-    transform: translateY(-1px);
-}
-
-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* ========================= */
-/* 📱 RESPONSIVIDADE */
-/* ========================= */
-
-/* TABLETS */
-@media (max-width: 900px) {
-    .container {
-        padding: 28px;
-    }
-}
-
-/* CELULARES */
-@media (max-width: 600px) {
-    body {
-        padding: 12px;
-    }
-
-    .container {
-        padding: 22px;
-        border-radius: 10px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    .row {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    label {
-        margin-top: 16px;
-    }
-
-    input,
-    select {
-        padding: 14px;
-        font-size: 15px;
-    }
-
-    button {
-        font-size: 17px;
-        padding: 18px;
-    }
+    opacity: 0.9;
 }
