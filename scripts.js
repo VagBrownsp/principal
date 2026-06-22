@@ -162,7 +162,7 @@ Valor: ${valorEntrada.value || "Não possui"}
 `;
 
     window.open(
-      "https://wa.me/5512988089776?text=" + encodeURIComponent(mensagem),
+      "https://wa.me/5512997479192?text=" + encodeURIComponent(mensagem),
       "_blank"
     );
   });
