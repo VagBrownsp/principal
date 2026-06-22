@@ -3,7 +3,7 @@ document.getElementById("formFicha").addEventListener("submit", function (e) {
 
   const nome = document.getElementById("nome").value;
   const dataNascimento = document.getElementById("dataNascimento").value;
-  const celularInput = document.getElementById("celular").value;
+  
 
   const mensagem = `🎁 LISTA PARA SORTEIO - VALE FINANCEIRA
 
@@ -20,6 +20,8 @@ Celular: ${celularInput}`;
 
 
 // MÁSCARA DO CELULAR (fora do submit)
+
+const celularInput = document.getElementById("celular").value;
 document.getElementById("celular").addEventListener("input", (e) => {
   let value = e.target.value;
 
