@@ -12,6 +12,14 @@ document.getElementById("formFicha").addEventListener("submit", function(e) {
 Nome: ${nome}
 Data de Nascimento: ${dataNascimento}
 Celular: ${celular}`;
+    function formatarCelular(valor) {
+  valor = valor.replace(/\D/g, "").slice(0, 11);
+
+  valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
+  valor = valor.replace(/(\d{5})(\d{4})$/, "$1-$2");
+
+  return valor;
+}
 
     const url =
         "https://api.whatsapp.com/send?phone=5512997479192&text=" +
