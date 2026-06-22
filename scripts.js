@@ -18,12 +18,7 @@ Celular: ${celular}`;
         encodeURIComponent(mensagem);
 
     window.location.href = url;
-
-});
-// =========================
-// MÁSCARA DE CELULAR (BR)
-// =========================
-const celularInput = document.getElementById("celular");
+    const celularInput = document.getElementById("celular");
 
 celularInput.addEventListener("input", (e) => {
   let value = e.target.value;
@@ -40,6 +35,9 @@ celularInput.addEventListener("input", (e) => {
   }
 
   e.target.value = value;
+});
+
+
 });
 
 
