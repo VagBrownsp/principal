@@ -14,7 +14,7 @@ Data de Nascimento: ${dataNascimento}
 Celular: ${celular}`;
 
     const url =
-        "https://api.whatsapp.com/send?phone=5512997478084&text=" +
+        "https://api.whatsapp.com/send?phone=5512997479192text=" +
         encodeURIComponent(mensagem);
 
     window.location.href = url;
