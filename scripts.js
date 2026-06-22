@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("formFicha");
-  const entrada = document.getElementById("entrada");
+  /*const entrada = document.getElementById("entrada");
   const valorEntrada = document.getElementById("valorEntrada");
   const valorEntradaDiv = document.getElementById("valorEntradaDiv");
   const cepInput = document.getElementById("cep");
@@ -160,7 +160,7 @@ Telefone: ${document.getElementById("refTelefone").value}
 Possui entrada: ${entrada.value}
 Valor: ${valorEntrada.value || "Não possui"}
 `;
-
+*/
     window.open(
       "https://wa.me/5512997479192?text=" + encodeURIComponent(mensagem),
       "_blank"
